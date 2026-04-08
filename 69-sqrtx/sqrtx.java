@@ -1,20 +1,15 @@
 class Solution {
-    public int mySqrt(int n) {
-       long str = 0, end = n, root = 1;
-      // if(n==0 || n==1) return n; 
-       while (str <= end) {
-         long mid = (end + str) / 2;
-           
-
-           if (mid*mid == n) return (int)mid;
-           else if (mid*mid >n) {   
-                end =mid-1;
-                        
-           } else {
-                str=mid+1;             
-           }
-       }
-       
-       return (int)end;  
+    public int mySqrt(int x) {
+        if(x==0) return 0;
+       int str=1,end=x;
+       while(str<=end){
+        int mid= str +(end-str)/2;
+        if(mid==x/mid) return mid;
+        else if(mid > x/mid) end= mid-1;
+        else{
+            str=mid+1;
+        }
+       } 
+       return end;
     }
 }
